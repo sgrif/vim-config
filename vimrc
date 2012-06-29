@@ -1,3 +1,6 @@
+" Load plugins that come with vim
+runtime macros/matchit.vim
+
 " Pathogen and basic shit
 runtime bundle/pathogen/autoload/pathogen.vim
 call pathogen#infect()
@@ -11,6 +14,7 @@ set mouse=a          " Allow use of mouse
 set exrc             " Allow directory specific shit
 set number           " Show line numbers
 set ruler            " Show current line and column
+set nrformats=       " Treat all numbers as decimal
 
 " Color scheme settings
 color solarized
@@ -78,6 +82,8 @@ set wildignore+=*.swp,*~,._*
 
 set backupdir=~/.vim/_backup//    " where to put backup files.
 set directory=~/.vim/_temp//      " where to put swap files.
+set nobackup
+set noswapfile
 
 ""
 "" Hooks
