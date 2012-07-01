@@ -124,3 +124,15 @@ map <leader>ew :e %%
 map <leader>es :sp %%
 map <leader>ev :vsp %%
 map <leader>et :tabe %%
+
+" Caps is ctrl -- need to make esc something I can actually type
+inoremap kj <Esc>
+
+" Format entire file
+nmap <leader>fef :RetabIndents<CR>gg=G
+
+" Forcing myself to not use arrow keys in insert mode and ctrl+[
+inoremap <Left>  <NOP>
+inoremap <Right> <NOP>
+inoremap <Up>    <NOP>
+inoremap <Down>  <NOP>
