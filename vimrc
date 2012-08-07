@@ -16,7 +16,7 @@ set number                         " Show line numbers
 set ruler                          " Show current line and column
 set nrformats=                     " Treat all numbers as decimal
 set history=200                    " Keep moar history
-set hidden                         " Don't close buffers when leaving
+set modeline
 
 " Color scheme settings
 color solarized
@@ -49,6 +49,10 @@ set listchars=tab:\ \              " a tab should display as "  ", trailing whit
 set listchars+=trail:.             " show trailing spaces as dots
 set listchars+=extends:>           " The character to show in the last column when wrap is off and the line continues beyond the right of the screen
 set listchars+=precedes:<          " The character to show in the last column when wrap is off and the line continues beyond the right of the screen
+
+" Fold settings
+set foldmethod=marker
+set foldenable
 
 " Eclim related settings
 let g:EclimJavaImportPackageSeparationLevel = 2
