@@ -24,6 +24,8 @@ set background=dark
 
 " Make the status line useful
 if has("statusline") && !&cp
+	let g:Powerline_symbols = 'fancy'
+	let g:Powerline_colorscheme = 'default'
 	set laststatus=2                 " always show the status bar
 
 	" Start the status line
@@ -146,3 +148,11 @@ inoremap <Left>  <NOP>
 inoremap <Right> <NOP>
 inoremap <Up>    <NOP>
 inoremap <Down>  <NOP>
+
+" Tlist settings
+let tlist_php_settings = 'php;c:class;f:function;d:constant'
+let Tlist_File_Fold_Auto_Close = 1
+let Tlist_GainFocus_On_ToggleOpen = 1
+let Tlist_Use_Right_Window = 1
+let Tlist_Close_On_Select = 1
+nnoremap <leader>tl :Tlist<CR>
