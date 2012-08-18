@@ -25,7 +25,6 @@ set background=dark
 " Make the status line useful
 if has("statusline") && !&cp
 	let g:Powerline_symbols = 'fancy'
-	let g:Powerline_colorscheme = 'default'
 	set laststatus=2                 " always show the status bar
 
 	" Start the status line
@@ -56,9 +55,12 @@ set listchars+=precedes:<          " The character to show in the last column wh
 set foldmethod=marker
 set foldenable
 
-" Eclim related settings
-let g:EclimJavaImportPackageSeparationLevel = 2
-let g:SuperTabDefaultCompletionType = 'context'
+" Tlist settings
+let tlist_php_settings = 'php;c:class;f:function;d:constant'
+let Tlist_File_Fold_Auto_Close = 1
+let Tlist_GainFocus_On_ToggleOpen = 1
+let Tlist_Use_Right_Window = 1
+let Tlist_Close_On_Select = 1
 
 ""
 "" Searching
@@ -103,24 +105,10 @@ set noswapfile                    " Also fuck swaps
 
 if has("autocmd")
 	augroup vimrc_autocmds
-		au!
-		autocmd bufwritepost .vimrc source $MYVIMRC " Source vimrc when written
+		" NERD Tree settings
+		autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif " Close vim if NERD Tree is our only window
 	augroup END
 end
-
-""
-"" Functions
-""
-
-" Retab spaced file, but only indentation
-command! RetabIndents call RetabIndents()
-
-" Retab spaced file, but only indentation
-func! RetabIndents()
-	let saved_view = winsaveview()
-	execute '%s@^\( \{'.&ts.'}\)\+@\=repeat("\t", len(submatch(0))/'.&ts.')@'
-	call winrestview(saved_view)
-endfunc
 
 ""
 "" Mappings
@@ -140,19 +128,15 @@ map <leader>et :tabe %%
 " Caps is ctrl -- need to make esc something I can actually type
 inoremap kj <Esc>
 
-" Format entire file
-nmap <leader>fef :RetabIndents<CR>gg=G
-
 " Forcing myself to not use arrow keys in insert mode and ctrl+[
 inoremap <Left>  <NOP>
 inoremap <Right> <NOP>
 inoremap <Up>    <NOP>
 inoremap <Down>  <NOP>
 
-" Tlist settings
-let tlist_php_settings = 'php;c:class;f:function;d:constant'
-let Tlist_File_Fold_Auto_Close = 1
-let Tlist_GainFocus_On_ToggleOpen = 1
-let Tlist_Use_Right_Window = 1
-let Tlist_Close_On_Select = 1
+" Taglist Mappings
 nnoremap <leader>tl :Tlist<CR>
+
+" NERD Tree mappings
+nnoremap <leader>nt :NERDTreeToggle<CR>
+nnoremap <leader>nf :NERDTreeFind<CR>
