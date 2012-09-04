@@ -5,6 +5,8 @@ if has("gui_running")
 	let g:solarized_termcolors = 256
 	color solarized
 
+	set guifont=Inconsolata:h15
+
 	if has("autocmd")
 		augroup vimrc_gui
 			au!
