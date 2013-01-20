@@ -64,8 +64,16 @@ let Tlist_Close_On_Select = 1
 
 " Syntastic settings
 let g:syntastic_mode_map = { 'mode': 'active',
-                           \ 'active_filetypes': [],
-                           \ 'passive_filetypes': ['cucumber'] }
+			\ 'active_filetypes': [],
+			\ 'passive_filetypes': ['cucumber'] }
+
+" Vroom settings
+if filereadable("script/features")
+	let g:vroom_cucumber_path = "./script/features"
+end
+if filereadable("script/test")
+	let g:vrom_spec_command = "./script/test"
+end
 
 ""
 "" Searching
@@ -113,6 +121,14 @@ if has("autocmd")
 		" NERD Tree settings
 		autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif " Close vim if NERD Tree is our only window
 	augroup END
+	" Jump to last cursor position unless it's invalid or in an event handler
+	autocmd BufReadPost *
+				\ if line("'\"") > 0 && line("'\"") <= line("$") |
+				\   exe "normal g`\"" |
+				\ endif
+
+	" Language specific indentation
+	autocmd FileType ruby,haml,eruby,yaml,html,javascript,sass,cucumber set ai sw=2 sts=2 et
 end
 
 ""
