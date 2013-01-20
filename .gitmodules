@@ -61,3 +61,18 @@
 [submodule "bundle/zencoding"]
 	path = bundle/zencoding
 	url = https://github.com/mattn/zencoding-vim.git
+[submodule "bundle/mustache"]
+	path = bundle/mustache
+	url = git://github.com/juvenn/mustache.vim.git
+[submodule "bundle/tabular"]
+	path = bundle/tabular
+	url = https://github.com/godlygeek/tabular.git
+[submodule "bundle/slim"]
+	path = bundle/slim
+	url = https://github.com/bbommarito/vim-slim.git
+[submodule "bundle/DBGPavim"]
+	path = bundle/DBGPavim
+	url = https://github.com/brookhong/DBGPavim.git
+[submodule "bundle/vroom"]
+	path = bundle/vroom
+	url = git://github.com/skalnik/vim-vroom.git

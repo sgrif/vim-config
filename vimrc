@@ -62,6 +62,11 @@ let Tlist_GainFocus_On_ToggleOpen = 1
 let Tlist_Use_Right_Window = 1
 let Tlist_Close_On_Select = 1
 
+" Syntastic settings
+let g:syntastic_mode_map = { 'mode': 'active',
+                           \ 'active_filetypes': [],
+                           \ 'passive_filetypes': ['cucumber'] }
+
 ""
 "" Searching
 ""
